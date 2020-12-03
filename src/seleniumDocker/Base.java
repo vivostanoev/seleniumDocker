@@ -33,7 +33,7 @@ public class Base {
 
 			System.out.println("-------------------------------------------------"+ host);
 
-	        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);
+	        driver = new RemoteWebDriver(new URL("http://" + host + ":4444/wd/hub"), dc);
 			WebDriverRunner.setWebDriver(driver);
 
 	        Selenide.open("https://www.demoblaze.com/");
