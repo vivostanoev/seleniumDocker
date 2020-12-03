@@ -7,4 +7,4 @@ WORKDIR /usr/share/tag
 ADD  target/seleniumDocker-0.0.1-SNAPSHOT.jar selenium-docker.jar
 ADD  target/libs libs
 
-ENTRYPOINT java -cp 'seleniumDocker-0.0.1-SNAPSHOT.jar;libs/*' -DseleniumHubHost=localhost org.junit.runner.JUnitCore seleniumDocker.OpenBrowserTests
+ENTRYPOINT java -cp seleniumDocker-0.0.1-SNAPSHOT.jar:libs/* -DseleniumHubHost=localhost org.junit.runner.JUnitCore seleniumDocker.OpenBrowserTests
