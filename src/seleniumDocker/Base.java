@@ -18,8 +18,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class Base {
 
-		WebDriver driver;
-
 	    @Rule
 	    public ErrorCollector errorCollector = new ErrorCollector();
 	    
@@ -35,7 +33,7 @@ public class Base {
 
 			System.out.println("-------------------------------------------------"+ host);
 
-	        driver = new RemoteWebDriver(new URL("http://" + host + ":4444/wd/hub"), dc);
+	        RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);
 			WebDriverRunner.setWebDriver(driver);
 
 	        Selenide.open("https://www.demoblaze.com/");
