@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Set up grid and maven') {
             steps{
-                     echo 'a'
+                     sh "docker build -f Dockerfile -t seleniumDocker ."
             }
         }
     }

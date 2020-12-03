@@ -1,7 +1,7 @@
 FROM openjdk:8-jre-slim
 
 #need to verify working WORKDIR
-WORKDIR C:\Windows\System32\cmd.exe
+WORKDIR /var/jenkins_home/workspace/seleniumDocker_master
 
 # Add the project jar & copy dependencies
 ADD  target/selenium-docker.jar selenium-docker.jar
