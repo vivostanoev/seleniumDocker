@@ -4,14 +4,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LoggerRule extends TestWatcher {
 
     private HashMap<String, List<String>> logs;
     private Description description;
+    private static final Logger LOG = LoggerFactory.getLogger(SelenideLogger.class);
 
 
     @Override
@@ -40,6 +44,6 @@ public class LoggerRule extends TestWatcher {
 
     public void printf()
     {
-        logs.get(description.getDisplayName()).forEach(e -> System.out.println(e));
+        logs.get(description.getDisplayName()).forEach(e -> LOG.info(e));
     }
 }

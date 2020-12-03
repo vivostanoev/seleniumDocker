@@ -21,14 +21,14 @@ public class OpenBrowserTests extends Base {
     }
 
 
-    @Test
-    public void testOpenBrowserAndFailTest()
-    {
-            log.addLog("openBrowserAndFailTest- assert true true");
-            Allure.step("I want to fail the test");
-            errorCollector.checkThat(false, IsEqual.equalTo(true));
-            log.addLog("openBrowserAndFailTest - second test finished");
-    }
+//    @Test
+//    public void testOpenBrowserAndFailTest()
+//    {
+//            log.addLog("openBrowserAndFailTest- assert true true");
+//            Allure.step("I want to fail the test");
+//            errorCollector.checkThat(false, IsEqual.equalTo(true));
+//            log.addLog("openBrowserAndFailTest - second test finished");
+//    }
 
     @Test
     public void testWithchOnlyPrintInConsole()

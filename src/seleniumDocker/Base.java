@@ -5,6 +5,7 @@ import java.net.URL;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -13,12 +14,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class Base {
 
-	    @Rule
+	@Rule
 	    public ErrorCollector errorCollector = new ErrorCollector();
 	    
 	    @Rule
@@ -45,6 +47,7 @@ public class Base {
 	@After
 	    public synchronized void afterTest()
 	    {
-	        Selenide.closeWebDriver();
+	        log.printf();
+	    	Selenide.closeWebDriver();
 	    }
 }
