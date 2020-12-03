@@ -1,7 +1,7 @@
 FROM openjdk:8-jre-slim
 
 #need to verify working WORKDIR
-WORKDIR C:/Users/Viliyan_Stanoev/IdeaProjects/seleniumDocker
+WORKDIR C:\Windows\System32\cmd.exe
 
 # Add the project jar & copy dependencies
 ADD  target/selenium-docker.jar selenium-docker.jar
