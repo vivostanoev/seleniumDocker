@@ -1,7 +1,7 @@
 FROM openjdk:8-jre-slim
 
 #need to verify working WORKDIR
-#WORKDIR /var/jenkins_home/workspace/seleniumDocker_master
+WORKDIR /usr/share/tag
 
 # Add the project jar & copy dependencies
 COPY  target/libs libs
