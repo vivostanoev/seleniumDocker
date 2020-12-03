@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.ErrorCollector;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -28,7 +29,8 @@ public class Base {
 	    @Before
 	    public void beforeTest() throws MalformedURLException {
 
-	        DesiredCapabilities dc = DesiredCapabilities.chrome();
+			ChromeOptions dc = new ChromeOptions();
+
 	        String host = System.getProperty("seleniumHubHost");
 
 			System.out.println("-------------------------------------------------"+ host);
