@@ -1,6 +1,7 @@
 FROM openjdk:8-jre-slim
 
 #need to verify working WORKDIR
+WORKDIR /usr/share/tag
 
 # Add the project jar & copy dependencies
 ADD  target/libs libs
