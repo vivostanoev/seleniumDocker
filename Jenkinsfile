@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Run Automation test'){
             steps{
-                sh "docker run -it --network ${network} seleniumdocker"
+                sh "docker run --network ${network} seleniumdocker"
             }
         }
     }
