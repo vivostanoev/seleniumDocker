@@ -6,4 +6,4 @@ FROM openjdk:8-jre-slim
 ADD  target/libs libs
 ADD  target/seleniumDocker-0.0.1-SNAPSHOT.jar selenium-docker.jar
 
-ENTRYPOINT java -cp 'seleniumDocker-0.0.1-SNAPSHOT.jar;libs/*' -DseleniumHubHost=localhost org.junit.runner.JUnitCore seleniumDocker.OpenBrowserTests
+ENTRYPOINT java -cp "seleniumDocker-0.0.1-SNAPSHOT.jar;libs/*" -DseleniumHubHost=localhost org.junit.runner.JUnitCore seleniumDocker.OpenBrowserTests
