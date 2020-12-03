@@ -9,13 +9,9 @@ pipeline {
 
     stages {
         stage('Set up grid and maven') {
-             agent {
-                            docker { image 'maven:3-alpine' args '--network net' }
-                        }
-                        steps {
-                            echo '${workspace}'
-                            sh 'java -cp "seleniumDocker-0.0.1-SNAPSHOT.jar;libs/*" -DseleniumHubHost=localhost org.junit.runner.JUnitCore seleniumDocker.OpenBrowserTests'
-                        }
+            steps{
+                     sh "docker build -f Dockerfile -t seleniumdocker ."
+            }
         }
     }
 }
