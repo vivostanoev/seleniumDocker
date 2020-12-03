@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Run Automation test'){
             steps{
-                sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} --network ${network} seleniumdocker"
+                sh "docker run --rm -e SELENIUM_HUB=localhost --network ${network} seleniumdocker"
             }
         }
     }
