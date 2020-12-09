@@ -11,7 +11,7 @@ pipeline {
         stage('Get Maven Dependancies'){
             steps{
                 sh "docker build -f Dockerfile -t mavenselenium ."
-                sh "docker run --rm mavenselenium"
+                //sh "docker run --rm mavenselenium"
             }
         }
 
