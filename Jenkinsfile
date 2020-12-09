@@ -8,7 +8,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Run Automation test'){
+        stage('Get Maven Dependancies'){
             steps{
                 sh "docker build -f Dockerfile -t mavenSelenium ."
                 sh "docker run --rm mavenSelenium"
