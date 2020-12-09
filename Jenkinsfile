@@ -8,10 +8,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Build a Dockerfile') {
+        stage('Create network') {
             steps{
                 sh "docker network create ${network}"
-                sh "docker build -f Dockerfile -t seleniumdocker ."
             }
         }
         stage('Run a Selenium Grid') {
@@ -22,6 +21,7 @@ pipeline {
         }
         stage('Run Automation test'){
             steps{
+                sh "docker build -f Dockerfile -t seleniumdocker ."
                 sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} --network ${network} seleniumdocker"
             }
         }
