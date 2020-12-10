@@ -22,7 +22,7 @@ pipeline {
         stage('Run Automation test'){
             steps{
                 sh "docker build -f Dockerfile -t mavenselenium ."
-                sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -v ${workspace}/target:/target --network ${network} mavenselenium"
+                sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -v usr/res/allure/target:/target --network ${network} mavenselenium"
             }
         }
         stage('Tearing Down Selenium Grid'){
@@ -35,13 +35,12 @@ pipeline {
         stage('Reports test results') {
             steps {
             script {
-            sh 'chmod -R o+xw target/allure-results'
                     allure([
                             includeProperties: false,
                             jdk: '',
                             properties: [],
                             reportBuildPolicy: 'ALWAYS',
-                            results: [[path: 'target/allure-results']]
+                            results: [[path: 'usr/res/allure/target/allure-results']]
                     ])
             }
             }
