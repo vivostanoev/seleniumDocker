@@ -3,7 +3,6 @@ def seleniumHub='selenium-hub-${BUILD_NUMBER}'
 def chrome='chrome-${BUILD_NUMBER}'
 def firefox='firefox-${BUILD_NUMBER}'
 def containertest='conatinertest-${BUILD_NUMBER}'
-def workspace = WORKSPACE
 
 pipeline {
     agent any
@@ -23,7 +22,7 @@ pipeline {
         stage('Run Automation test'){
             steps{
                 sh "docker build -f Dockerfile -t mavenselenium ."
-                sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -v ${workspace}/target:/target --network ${network} mavenselenium"
+                sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -v {env.WORKSPACE}/target:/target --network ${network} mavenselenium"
             }
         }
         stage('Tearing Down Selenium Grid'){
