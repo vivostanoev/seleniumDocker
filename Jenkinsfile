@@ -22,7 +22,6 @@ pipeline {
         }
         stage('Run Automation test'){
             steps{
-                d\
                 sh "docker build -f Dockerfile -t mavenselenium ."
                 sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -v ${workspace}/target:/target --network ${network} mavenselenium"
             }
