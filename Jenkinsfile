@@ -21,9 +21,9 @@ pipeline {
         }
         stage('Run Automation test'){
             steps{
-                def workspace = pwd()
+                def workspace = WORKSPACE
                 sh "docker build -f Dockerfile -t mavenselenium ."
-                sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -v ${workspace}:/src/target --network ${network} mavenselenium"
+                sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -v ${workspace}:/src --network ${network} mavenselenium"
             }
         }
         stage('Tearing Down Selenium Grid'){
