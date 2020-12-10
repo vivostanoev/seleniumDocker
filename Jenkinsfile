@@ -23,7 +23,7 @@ pipeline {
             steps{
                 def workspace = WORKSPACE
                 sh "docker build -f Dockerfile -t mavenselenium ."
-                sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -v ${workspace}:/src --network ${network} mavenselenium"
+                sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -v ${workspace}/target:/target --network ${network} mavenselenium"
             }
         }
         stage('Tearing Down Selenium Grid'){
