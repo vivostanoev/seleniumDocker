@@ -14,8 +14,10 @@ public class OpenBrowserTests extends Base {
     {
         log.addLog("openBrowser - Click menu item Laptop");
         Allure.step("Click menu item 'Laptops'");
+        System.out.println("Click menu item 'Laptops'");
         $(withText("Laptops")).click();
         log.addLog("openBrowser - Select a MacBook air");
+        System.out.println("openBrowser - Select a MacBook air");
         $(withText("MacBook air")).click();
     }
 
