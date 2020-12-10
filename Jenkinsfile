@@ -32,7 +32,7 @@ pipeline {
                 sh "docker network rm ${network}"
             }
         }
-        stage('reports') {
+        stage('Reports test results') {
             steps {
             script {
                     allure([
