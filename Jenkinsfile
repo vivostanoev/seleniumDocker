@@ -35,6 +35,7 @@ pipeline {
         stage('Reports test results') {
             steps {
             script {
+            sh 'chmod -R o+xw target/allure-results'
                     allure([
                             includeProperties: false,
                             jdk: '',
