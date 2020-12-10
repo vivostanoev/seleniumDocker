@@ -23,6 +23,7 @@ pipeline {
             steps{
                 sh "docker build -f Dockerfile -t mavenselenium ."
                 sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -v ${workspace}/allure-results:/target/allure-results --network ${network} mavenselenium"
+                sh "docker cp mavenselenium:/target/. ${workspace}/allure-results"
             }
         }
         stage('Tearing Down Selenium Grid'){
