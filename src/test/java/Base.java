@@ -24,14 +24,14 @@ public class Base {
 	    @Before
 	    public void beforeTest() throws MalformedURLException {
 
-//			ChromeOptions dc = new ChromeOptions();
-//
-//	        String host = System.getProperty("seleniumHubHost");
-//
-//			System.out.println("-------------------------------------------------"+ host);
-//
-//	        RemoteWebDriver driver = new RemoteWebDriver(new URL("http://"+host+":4444/wd/hub"), dc);
-//			WebDriverRunner.setWebDriver(driver);
+			ChromeOptions dc = new ChromeOptions();
+
+	        String host = System.getProperty("seleniumHubHost");
+
+			System.out.println("-------------------------------------------------"+ host);
+
+	        RemoteWebDriver driver = new RemoteWebDriver(new URL("http://"+host+":4444/wd/hub"), dc);
+			WebDriverRunner.setWebDriver(driver);
 
 	        Selenide.open("https://www.demoblaze.com/");
 	        //driver.get("https://www.demoblaze.com/");
