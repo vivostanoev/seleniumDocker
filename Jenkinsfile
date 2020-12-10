@@ -22,7 +22,7 @@ pipeline {
         stage('Run Automation test'){
             steps{
                 sh "docker build -f Dockerfile -t mavenselenium ."
-                sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} --network ${network} mavenselenium"
+                sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} --network ${network} -v "$PWD":/src/target mavenselenium"
             }
         }
         stage('Tearing Down Selenium Grid'){
