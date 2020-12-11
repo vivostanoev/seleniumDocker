@@ -42,7 +42,7 @@ pipeline {
                             args: '-u root:root',
                             properties: [],
                             reportBuildPolicy: 'ALWAYS',
-                            results: [[path: 'allure-results']]
+                            results: [[path: 'target/allure-results']]
                     ])
             }
             }
