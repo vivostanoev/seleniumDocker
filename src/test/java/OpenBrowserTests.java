@@ -2,6 +2,7 @@ package test.java;
 
 import io.qameta.allure.Allure;
 import io.qameta.allure.junit4.DisplayName;
+import org.hamcrest.core.IsEqual;
 import org.junit.Test;
 
 import static com.codeborne.selenide.Selectors.withText;
@@ -25,14 +26,14 @@ public class OpenBrowserTests extends Base {
     }
 
 
-//    @Test
-//    public void testOpenBrowserAndFailTest()
-//    {
-//            log.addLog("openBrowserAndFailTest- assert true true");
-//            Allure.step("I want to fail the test");
-//            errorCollector.checkThat(false, IsEqual.equalTo(true));
-//            log.addLog("openBrowserAndFailTest - second test finished");
-//    }
+    @Test
+    public void testOpenBrowserAndFailTest()
+    {
+            log.addLog("openBrowserAndFailTest- assert true true");
+            Allure.step("I want to fail the test");
+            errorCollector.checkThat(false, IsEqual.equalTo(true));
+            log.addLog("openBrowserAndFailTest - second test finished");
+    }
 
     @Test
     public void testWithchOnlyPrintInConsole()
