@@ -33,6 +33,7 @@ pipeline {
                 sh "docker network rm ${network}"
             }
         }
+     }
           post {
                 always {
                     allure results: [[path: 'target/allure-results']]
@@ -43,5 +44,4 @@ pipeline {
                             color: 'danger', teamDomain: 'qameta', channel: 'allure', tokenCredentialId: 'allure-channel'
                 }
             }
-    }
 }
