@@ -33,19 +33,15 @@ pipeline {
                 sh "docker network rm ${network}"
             }
         }
-        stage('Reports test results') {
-            steps {
-            script {
-                    allure([
-                            includeProperties: false,
-                            jdk: '',
-                            args: '-u root:root',
-                            properties: [],
-                            reportBuildPolicy: 'ALWAYS',
-                            results: [[path: 'allure-results']]
-                    ])
+          post {
+                always {
+                    allure results: [[path: 'build/test-results/test']]
+                    deleteDir()
+                }
+                failure {
+                    slackSend message: "${env.JOB_NAME} - #${env.BUILD_NUMBER} failed (<${env.BUILD_URL}|Open>)",
+                            color: 'danger', teamDomain: 'qameta', channel: 'allure', tokenCredentialId: 'allure-channel'
+                }
             }
-            }
-        }
     }
 }
