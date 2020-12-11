@@ -21,8 +21,9 @@ pipeline {
         }
         stage('Run Automation test'){
             steps{
+                sh "mkdir allure/target/allure-results"
                 sh "docker build -f Dockerfile -t mavenselenium ."
-                sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -v ${workspace}/target/allure-results:/target/allure-results --network ${network} mavenselenium"
+                sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -v allure/target/allure-results:/target/allure-results --network ${network} mavenselenium"
 
             }
         }
