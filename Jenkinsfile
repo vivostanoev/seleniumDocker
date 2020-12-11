@@ -21,9 +21,9 @@ pipeline {
         }
         stage('Run Automation test'){
             steps{
-                sh "mkdir allure/target/allure-results"
+                sh "mkdir /var/jenkins_home/workspace/target/allure-results"
                 sh "docker build -f Dockerfile -t mavenselenium ."
-                sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -v allure/target/allure-results:/target/allure-results --network ${network} mavenselenium"
+                sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -v /var/jenkins_home/workspace/target/allure-results:/target/allure-results --network ${network} mavenselenium"
 
             }
         }
@@ -37,8 +37,7 @@ pipeline {
      }
           post {
                 always {
-                    allure results: [[path: 'allure/target/allure-results']]
-                    deleteDir()
+                    allure results: [[path: '/var/jenkins_home/workspace/target/allure-results']]
                 }
                 failure {
                     slackSend message: "${env.JOB_NAME} - #${env.BUILD_NUMBER} failed (<${env.BUILD_URL}|Open>)",
