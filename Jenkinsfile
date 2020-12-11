@@ -22,7 +22,7 @@ pipeline {
         stage('Run Automation test'){
             steps{
                 sh "docker build -f Dockerfile -t mavenselenium ."
-                sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -v /var/jenkins_home/workspace/target/allure-results:/target/allure-results --network ${network} mavenselenium"
+                sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -v ${workspace}/allure-results:/target/allure-results --network ${network} mavenselenium"
 
             }
         }
@@ -33,14 +33,19 @@ pipeline {
                 sh "docker network rm ${network}"
             }
         }
-     }
-          post {
-                always {
-                    allure results: [[path: '/var/jenkins_home/workspace/target/allure-results']]
-                }
-                failure {
-                    slackSend message: "${env.JOB_NAME} - #${env.BUILD_NUMBER} failed (<${env.BUILD_URL}|Open>)",
-                            color: 'danger', teamDomain: 'qameta', channel: 'allure', tokenCredentialId: 'allure-channel'
-                }
+        stage('Reports test results') {
+            steps {
+            script {
+                    allure([
+                            includeProperties: false,
+                            jdk: '',
+                            args: '-u root:root',
+                            properties: [],
+                            reportBuildPolicy: 'ALWAYS',
+                            results: [[path: 'allure-results']]
+                    ])
             }
+            }
+        }
+    }
 }
