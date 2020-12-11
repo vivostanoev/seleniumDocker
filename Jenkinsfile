@@ -35,7 +35,7 @@ pipeline {
         }
           post {
                 always {
-                    allure results: [[path: 'build/test-results/test']]
+                    allure results: [[path: 'target/allure-results']]
                     deleteDir()
                 }
                 failure {
