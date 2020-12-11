@@ -1,6 +1,7 @@
 package test.java;
 
 import io.qameta.allure.Allure;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 
 import static com.codeborne.selenide.Selectors.withText;
@@ -10,6 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class OpenBrowserTests extends Base {
 
     @Test
+    @DisplayName("First Test")
     public void testOpenBrowser() throws Exception
     {
         log.addLog("openBrowser - Click menu item Laptop");
