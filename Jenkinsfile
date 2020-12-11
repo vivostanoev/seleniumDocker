@@ -22,7 +22,7 @@ pipeline {
         stage('Run Automation test'){
             steps{
                 sh "docker build -f Dockerfile -t mavenselenium ."
-                sh "docker run --rm -e -p 8080:8080 -p 50000:50000 SELENIUM_HUB=${seleniumHub} -v ${workspace}/allure-results:/target/allure-results --network ${network} mavenselenium"
+                sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -v ${workspace}/allure-results:/target/allure-results --network ${network} mavenselenium"
 
             }
         }
@@ -39,6 +39,7 @@ pipeline {
                     allure([
                             includeProperties: false,
                             jdk: '',
+                            args: '-u root:root',
                             properties: [],
                             reportBuildPolicy: 'ALWAYS',
                             results: [[path: 'allure-results']]
