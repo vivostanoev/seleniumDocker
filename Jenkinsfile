@@ -8,6 +8,11 @@ pipeline {
     agent any
 
     stages {
+        stage('Build image from Maven and Test Code') {
+            steps{
+            sh "docker build -f Dockerfile -t mavenselenium ."
+            }
+        }
         stage('Docker Compose up') {
             steps{
                 sh "docker-compose up"
