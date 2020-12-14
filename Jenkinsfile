@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Hello') {
                     steps {
-                        sh "mvn install -DseleniumHubHost=selenium-hub-11"
+                        sh "mvn install -DseleniumHubHost=172.19.0.2"
                     }
                 }
         //stage('Run a Selenium Grid') {
