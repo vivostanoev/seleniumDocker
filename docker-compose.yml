@@ -35,7 +35,7 @@ services:
     depends_on:
       - hub
     environment:
-      REMOTE_HOST: http://192:168:80:135:50000
+      REMOTE_HOST: bar.com:4444
       HUB_PORT_4444_TCP_ADDR: hub
       HUB_PORT_4444_TCP_PORT: 4444
       NODE_MAX_SESSION: 2
