@@ -23,3 +23,11 @@ services:
     environment:
       - HUB_PORT_4444_TCP_ADDR=selenium-hub
       - HUB_PORT_4444_TCP_PORT=4444
+  tests:
+    image: mavenselenium
+    volumes:
+      - ${workspace}/target/allure-results:/target/allure-results
+    environment:
+      - SELENIUM_HUB=selenium-hub
+    depends_on:
+      - selenium-hub
