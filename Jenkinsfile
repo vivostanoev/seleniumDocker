@@ -26,13 +26,13 @@ pipeline {
 
             }
         }
-        stage('Tearing Down Selenium Grid'){
-            steps{
-                sh "docker rm -vf ${chrome}"
-                sh "docker rm -vf ${seleniumHub}"
-                sh "docker network rm ${network}"
-            }
-        }
+      //  stage('Tearing Down Selenium Grid'){
+        //    steps{
+          //      sh "docker rm -vf ${chrome}"
+            ////    sh "docker rm -vf ${seleniumHub}"
+              //  sh "docker network rm ${network}"
+           // }
+       // }
         stage('Reports test results') {
             steps {
             script {
