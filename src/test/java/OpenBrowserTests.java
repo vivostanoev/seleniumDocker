@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class OpenBrowserTests extends Base {
 
     @Test
-    @DisplayName("First Test")
+    @DisplayName("Test Open Browser and select a MacBook air")
     public void testOpenBrowser() throws Exception
     {
         log.addLog("openBrowser - Click menu item Laptop");

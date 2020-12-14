@@ -53,7 +53,6 @@ public class Base {
 
 	@After
 	    public synchronized void afterTest() throws IOException {
-	        log.printf();
 	    	Selenide.closeWebDriver();
 	    }
 
