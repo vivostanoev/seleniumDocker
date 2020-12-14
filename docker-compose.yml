@@ -17,7 +17,7 @@ services:
     depends_on:
       - hub
     environment:
-      REMOTE_HOST: 10.10.33.39:4444
+      REMOTE_HOST: 10.10.33.39
       HUB_PORT_4444_TCP_ADDR: 10.10.33.39
       HUB_PORT_4444_TCP_PORT: 4444
       NODE_MAX_SESSION: 4
@@ -35,7 +35,7 @@ services:
     depends_on:
       - hub
     environment:
-      REMOTE_HOST: 10.10.33.39:4444
+      REMOTE_HOST: 10.10.33.39
       HUB_PORT_4444_TCP_ADDR: 10.10.33.39
       HUB_PORT_4444_TCP_PORT: 4444
       NODE_MAX_SESSION: 2
