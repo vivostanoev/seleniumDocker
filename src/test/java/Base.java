@@ -36,9 +36,6 @@ public class Base {
 
 	@Before
 	    public void beforeTest() throws MalformedURLException {
-
-			SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
-
 			ChromeOptions dc = new ChromeOptions();
 
 	        String host = System.getProperty("seleniumHubHost");
@@ -56,7 +53,6 @@ public class Base {
 
 	@After
 	    public synchronized void afterTest() throws IOException {
-			screenshot();
 	        log.printf();
 	    	Selenide.closeWebDriver();
 	    }
