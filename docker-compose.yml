@@ -27,7 +27,6 @@ services:
     image: mavenselenium
     volumes:
       - ${workspace}/target/allure-results:/target/allure-results
-    environment:
-      - SELENIUM_HUB=selenium-hub
     depends_on:
       - selenium-hub
+    entrypoint: mvn test -DseleniumHubHost=selenium-hub
