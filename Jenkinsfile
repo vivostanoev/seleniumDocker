@@ -8,33 +8,18 @@ pipeline {
     agent any
 
     stages {
-        stage('Build image from Maven and Test Code') {
+        stage('Run selenium Grid') {
             steps{
-            sh "docker build -f Dockerfile -t mavenselenium ."
+            sh "docker run -d -p 4444:4444 --name selenium-hub selenium/hub:3.141.59-20201119"
+            sh "docker run -d --link selenium-hub:hub -v /dev/shm:/dev/shm selenium/node-chrome:3.141.59-20201119"
+            sh "docker run -d --link selenium-hub:hub -v /dev/shm:/dev/shm selenium/node-firefox:3.141.59-20201119"
+            sh "docker run -d --link selenium-hub:hub -v /dev/shm:/dev/shm selenium/node-opera:3.141.59-20201119"
             }
         }
-        stage('Docker Compose up') {
+
+        stage('Run maven '){
             steps{
-                sh "docker-compose up -d"
-            }
-        }
-        stage('Docker Compose down'){
-            steps{
-                sh "docker-compose down"
-            }
-        }
-        stage('Reports test results') {
-            steps {
-            script {
-                    allure([
-                            includeProperties: false,
-                            jdk: '',
-                            args: '-u root:root',
-                            properties: [],
-                            reportBuildPolicy: 'ALWAYS',
-                            results: [[path: 'target/allure-results']]
-                    ])
-            }
+                sh "mvn test"
             }
         }
     }
