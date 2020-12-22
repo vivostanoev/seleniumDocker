@@ -1,5 +1,5 @@
 def network='jenkins-${env.BUILD_NUMBER}'
-def buildnum='${BUILD_NUMBER}'
+def buildnum="${BUILD_NUMBER}"
 def seleniumHub='selenium-hub-${env.BUILD_NUMBER}'
 def chrome='chrome-${env.BUILD_NUMBER}'
 
