@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 
 
-public class OpenBrowserTests extends Base {
+public class OpenBrowserTests1 extends Base {
 
     @Test
     @DisplayName("Test Open Browser and select a MacBook air")

@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-    OpenBrowserTests.class
+    OpenBrowserTests1.class
 })
 public class Main {	
 	
