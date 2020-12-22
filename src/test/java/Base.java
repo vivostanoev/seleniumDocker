@@ -42,7 +42,7 @@ public class Base {
 
 			System.out.println("-------------------------------------------------"+ host);
 
-	        RemoteWebDriver driver = new RemoteWebDriver(new URL("http://host.docker.internal:4444/wd/hub"), dc);
+	        RemoteWebDriver driver = new RemoteWebDriver(new URL("http://"+host+":4444/wd/hub"), dc);
 			WebDriverRunner.setWebDriver(driver);
 
 	        Selenide.open("https://www.demoblaze.com/");
