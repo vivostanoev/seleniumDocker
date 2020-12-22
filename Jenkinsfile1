@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Create network') {
             steps{
-                echo buildnum
+                echo network
                 bat "docker network create ${network}"
             }
         }
