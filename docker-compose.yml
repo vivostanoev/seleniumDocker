@@ -20,4 +20,4 @@ services:
       - ${workspace}/target/allure-results:/target/allure-results
     depends_on:
       - selenium-hub
-    entrypoint: mvn install -DseleniumHubHost=selenium-hub
+    entrypoint: mvn test -DseleniumHubHost=selenium-hub
