@@ -10,10 +10,10 @@ pipeline {
     stages {
         stage('Run selenium Grid') {
             steps{
-            sh "docker run -d -p 4444:4444 --name selenium-hub selenium/hub:3.141.59-20201119"
-            sh "docker run -d --link selenium-hub:hub -v /dev/shm:/dev/shm selenium/node-chrome:3.141.59-20201119"
-            sh "docker run -d --link selenium-hub:hub -v /dev/shm:/dev/shm selenium/node-firefox:3.141.59-20201119"
-            sh "docker run -d --link selenium-hub:hub -v /dev/shm:/dev/shm selenium/node-opera:3.141.59-20201119"
+            bash "docker run -d -p 4444:4444 --name selenium-hub selenium/hub:3.141.59-20201119"
+            bash "docker run -d --link selenium-hub:hub -v /dev/shm:/dev/shm selenium/node-chrome:3.141.59-20201119"
+            bash "docker run -d --link selenium-hub:hub -v /dev/shm:/dev/shm selenium/node-firefox:3.141.59-20201119"
+            bash "docker run -d --link selenium-hub:hub -v /dev/shm:/dev/shm selenium/node-opera:3.141.59-20201119"
             }
         }
 
