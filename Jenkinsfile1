@@ -1,5 +1,5 @@
 def buildnum="${BUILD_NUMBER}"
-def network="jenkins-${buildnum}
+def network="jenkins-${buildnum}"
 def seleniumHub="selenium-hub-${buildnum}"
 def chrome="chrome-${buildnum}"
 
