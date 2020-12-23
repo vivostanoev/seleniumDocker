@@ -1,5 +1,4 @@
 seleniumDocker\Main.class
-seleniumDocker\OpenBrowserTests.class
 seleniumDocker\Base.class
 test\java\Main.class
 test\java\LoggerRule.class

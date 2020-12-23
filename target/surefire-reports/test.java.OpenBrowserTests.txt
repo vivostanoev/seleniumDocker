@@ -1,4 +1,28 @@
 -------------------------------------------------------------------------------
 Test set: test.java.OpenBrowserTests
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 24.758 s - in test.java.OpenBrowserTests
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 3.607 s <<< FAILURE! - in test.java.OpenBrowserTests
+test.java.OpenBrowserTests.testOpenBrowserAndFailTest  Time elapsed: 3.359 s  <<< ERROR!
+org.openqa.selenium.remote.UnreachableBrowserException: 
+Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'EPBGSOFL0122', ip: '192.168.1.103', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.1'
+Driver info: driver.version: RemoteWebDriver
+Caused by: java.net.UnknownHostException: No such host is known (null)
+
+test.java.OpenBrowserTests.testOpenBrowser  Time elapsed: 0.009 s  <<< ERROR!
+org.openqa.selenium.remote.UnreachableBrowserException: 
+Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'EPBGSOFL0122', ip: '192.168.1.103', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.1'
+Driver info: driver.version: RemoteWebDriver
+Caused by: java.net.UnknownHostException: null
+
+test.java.OpenBrowserTests.testWithchOnlyPrintInConsole  Time elapsed: 0.009 s  <<< ERROR!
+org.openqa.selenium.remote.UnreachableBrowserException: 
+Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'EPBGSOFL0122', ip: '192.168.1.103', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.1'
+Driver info: driver.version: RemoteWebDriver
+Caused by: java.net.UnknownHostException: null
+
