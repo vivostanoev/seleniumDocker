@@ -31,5 +31,19 @@ pipeline {
                 bat "docker network rm ${network}"
             }
         }
+            stage('Reports test results') {
+                    steps {
+                    script {
+                            allure([
+                                    includeProperties: false,
+                                    jdk: '',
+                                    args: '-u root:root',
+                                    properties: [],
+                                    reportBuildPolicy: 'ALWAYS',
+                                    results: [[path: 'target/allure-results']]
+                            ])
+                    }
+                    }
+            }
     }
 }
