@@ -20,8 +20,12 @@ pipeline {
         }
         stage('Run Automation test'){
             steps{
-                bat "docker build -f originDockerfile -t seleniumdocker ."
-                bat "docker run --rm -e SELENIUM_HUB=${seleniumHub} --network ${network} seleniumdocker"
+                try {
+                    bat "docker build -f originDockerfile -t seleniumdocker ."
+                    bat "docker run --rm -e SELENIUM_HUB=${seleniumHub} --network ${network} seleniumdocker"
+                } catch(error) {
+                    echo error
+                }
             }
         }
         stage('Tearing Down Selenium Grid'){
