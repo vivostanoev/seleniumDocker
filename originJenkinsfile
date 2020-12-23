@@ -20,11 +20,9 @@ pipeline {
         }
         stage('Run Automation test'){
             steps{
-                try{
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     bat "docker build -f originDockerfile -t seleniumdocker ."
                     bat "docker run --rm -e SELENIUM_HUB=${seleniumHub} --network ${network} seleniumdocker"
-                }catch(error){
-                    echo error
                 }
             }
         }
