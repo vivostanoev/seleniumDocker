@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Run Automation test'){
             steps{
-                sh "docker build -f Dockerfile -t seleniumdocker ."
+                sh "docker build -f originDockerfile -t seleniumdocker ."
                 sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} --network ${network} seleniumdocker"
             }
         }

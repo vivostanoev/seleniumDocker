@@ -9,4 +9,4 @@ ADD  target/libs libs
 
 HEALTHCHECK --interval=10s --timeout=100s --retries=3 --start-period=30s CMD curl -f http://$SELENIUM_HUB:4444/wd/hub || exit 1
 
-ENTRYPOINT java -cp 'selenium-docker.jar:libs/*' -DseleniumHubHost=$SELENIUM_HUB org.junit.runner.JUnitCore seleniumDocker.OpenBrowserTests
+ENTRYPOINT java -cp 'seleniumDocker-0.0.1-SNAPSHOT-tests.jar:libs/*' -DseleniumHubHost=$SELENIUM_HUB org.junit.runner.JUnitCore test.java.OpenBrowserTests
