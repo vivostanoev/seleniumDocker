@@ -28,9 +28,6 @@ public class Base {
 
 	@Rule
 	public ErrorCollector errorCollector = new ErrorCollector();
-	    
-	@Rule
-	public LoggerRule log = new LoggerRule();
 
 
 
@@ -46,7 +43,6 @@ public class Base {
 			WebDriverRunner.setWebDriver(driver);
 
 	        Selenide.open("https://www.demoblaze.com/");
-	        //driver.get("https://www.demoblaze.com/");
 	    }
 
 
@@ -54,11 +50,4 @@ public class Base {
 	    public synchronized void afterTest() throws IOException {
 	    	Selenide.closeWebDriver();
 	    }
-
-
-	@Attachment(type = "image/png")
-	public byte[] screenshot() throws IOException {
-		File screenshot = Screenshots.getLastScreenshot();
-		return Files.toByteArray(screenshot);
-	}
 }

@@ -15,12 +15,10 @@ public class OpenBrowserTests extends Base {
     @DisplayName("Test Open Browser and select a MacBook air")
     public void testOpenBrowser() throws Exception
     {
-        log.addLog("openBrowser - Click menu item Laptop");
         Allure.step("Click menu item 'Laptops'");
         System.out.println("Click menu item 'Laptops'");
         $(withText("Laptops")).click();
         Allure.step("Select Item 'MacBook air'");
-        log.addLog("openBrowser - Select a MacBook air");
         System.out.println("openBrowser - Select a MacBook air");
         $(withText("MacBook air")).click();
     }
@@ -29,17 +27,15 @@ public class OpenBrowserTests extends Base {
     @Test
     public void testOpenBrowserAndFailTest()
     {
-            log.addLog("openBrowserAndFailTest- assert true true");
             Allure.step("I want to fail the test");
             errorCollector.checkThat(false, IsEqual.equalTo(true));
-            log.addLog("openBrowserAndFailTest - second test finished");
     }
 
     @Test
     public void testWithchOnlyPrintInConsole()
     {
-        log.addLog("testWithchOnlyPrintInConsole - first print");
-        log.addLog("testWithchOnlyPrintInConsole - second print");
-        log.addLog("testWithchOnlyPrintInConsole - third print");
+        System.out.println("------------------------:1");
+        System.out.println("------------------------:2");
+        System.out.println("------------------------:3");
     }
 }
